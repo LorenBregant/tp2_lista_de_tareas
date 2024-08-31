@@ -1,5 +1,3 @@
-#Entorno virtual
 env/
-
-#Configuración del IDE (JetBrains)
 .idea/
+**/__pycache__/
