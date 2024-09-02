@@ -1,25 +1,18 @@
-class Tarea:
+class ListaDeTareas:
     def __init__(self):
-        self.__detalle = []
+        self.__tareas = []
+        self.__indice = 0
 
-    def agregar_tarea(self, item):
-        self.__agregar_al_detalle(item)
+    def agregar_tarea(self, tarea):
+        self.__tareas.append(tarea)
 
-    def cantidad_tareas(self):
-        return self.__cantidad_de_tareas()
+    def obtener_tarea(self):
+        if self.__indice < len(self.__tareas):
+            tarea = self.__tareas[self.__indice]
+            self.__indice += 1
+            return tarea
 
-    def completar_tarea(self, item):
-        return self.__marcar_como_completada(item)
-
-    def __agregar_al_detalle(self, item):
-        self.__detalle.append({"titulo": item, "completada": False})
-
-    def __cantidad_de_tareas(self):
-        return len(self.__detalle)
-
-    def __marcar_como_completada(self, item):
-        for tarea in self.__detalle:
-            if tarea["titulo"] == item:
-                tarea["completada"] = True
+    def completar_tarea(self, tarea):
+        for item in self.__tareas:
+            if item == tarea:
                 return True
-        return False
