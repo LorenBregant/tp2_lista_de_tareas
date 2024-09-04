@@ -16,3 +16,8 @@ class ListaDeTareas:
         for item in self.__tareas:
             if item == tarea:
                 return True
+
+    def eliminar_tarea(self, tarea):
+        for item in self.__tareas:
+            if item == tarea:
+                self.__tareas.remove(item)
