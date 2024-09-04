@@ -6,9 +6,7 @@ def test_se_pueden_agregar_tareas():
     lista.agregar_tarea("tarea 2")
     lista.agregar_tarea("tarea 3")
 
-    assert lista.obtener_tarea() == "tarea 1"
-    assert lista.obtener_tarea() == "tarea 2"
-    assert lista.obtener_tarea() == "tarea 3"
+    assert lista.obtener_tarea_pendiente() == "tarea 1"
 
 def test_se_puede_completar_tareas():
     lista = ListaDeTareas()
@@ -16,9 +14,9 @@ def test_se_puede_completar_tareas():
     lista.agregar_tarea("tarea 2")
     lista.agregar_tarea("tarea 3")
 
-    assert lista.completar_tarea("tarea 1") is True
-    assert lista.completar_tarea("tarea 2") is True
-    assert lista.completar_tarea("tarea 3") is True
+    assert lista.completar_tarea("tarea 1") == True
+    assert lista.completar_tarea("tarea 2") == True
+    assert lista.completar_tarea("tarea 3") == True
 
 def test_se_puede_eliminar_tareas():
     lista = ListaDeTareas()
@@ -28,4 +26,4 @@ def test_se_puede_eliminar_tareas():
     lista.agregar_tarea("tarea 2")
     lista.eliminar_tarea("tarea 2")
 
-    assert lista.obtener_tarea() is None
+    assert lista.obtener_tarea_pendiente() is None
