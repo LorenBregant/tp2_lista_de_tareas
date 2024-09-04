@@ -7,6 +7,8 @@ def test_se_pueden_agregar_tareas():
     lista.agregar_tarea("tarea 3")
 
     assert lista.obtener_tarea_pendiente() == "tarea 1"
+    assert lista.obtener_tarea_pendiente() == "tarea 2"
+    assert lista.obtener_tarea_pendiente() == "tarea 3"
 
 def test_se_puede_completar_tareas():
     lista = ListaDeTareas()
