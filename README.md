@@ -15,8 +15,8 @@ Sigue estos pasos para instalar la aplicación en tu máquina local:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
+   git clone https://github.com/LorenBregant/tp2_lista_de_tareas.git
+   cd tp2_lista_de_tareas/
 
 2. **Crea y activa un entorno virtual (opcional, pero recomendado)**:
     
