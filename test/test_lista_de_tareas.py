@@ -1,48 +1,59 @@
-from src.lista_de_tareas import ListaDeTareas
+from src.gestor_de_tareas import GestorDeTareas
 
-def test_se_puede_añadir_una_tarea_a_la_lista():
-    lista = ListaDeTareas()
-    lista.agregar_tarea("tarea 1")
+def test_la_lista_de_tareas_esta_vacia():
+    gestor = GestorDeTareas()
 
-    assert lista.cantidad_de_tareas() == 1
+    assert gestor.cantidad_de_tareas() == 0
 
-def test_se_puede_añadir_multiples_tareas():
-    lista = ListaDeTareas()
-    lista.agregar_tarea("tarea 1")
-    lista.agregar_tarea("tarea 2")
+def test_se_puede_agregar_una_tarea():
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
 
-    assert lista.cantidad_de_tareas() == 2
+    assert gestor.cantidad_de_tareas() == 1
+
+def test_se_pueden_agregar_multiples_tareas():
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
+    gestor.agregar_tarea("tarea 2")
+
+    assert gestor.cantidad_de_tareas() == 2
+
+def test_se_puede_eliminar_una_tarea():
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
+    tarea_a_eliminar = gestor.obtener_tareas()[0]
+    gestor.eliminar_tarea(tarea_a_eliminar.obtener_identificador())
+
+    assert gestor.cantidad_de_tareas() == 0
 
 def test_se_puede_completar_una_tarea():
-    lista = ListaDeTareas()
-    lista.agregar_tarea("tarea 1")
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
+    tarea_a_completar = gestor.obtener_tareas()[0]
+    gestor.marcar_completada(tarea_a_completar.obtener_identificador())
 
-    assert lista.completar("tarea 1") == "Completada"
+    assert tarea_a_completar.esta_completada() is True
 
-def test_se_puede_completar_multiples_tareas():
-    lista = ListaDeTareas()
-    lista.agregar_tarea("tarea 1")
-    lista.agregar_tarea("tarea 2")
+def test_se_pueden_completar_multiples_tareas():
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
+    gestor.agregar_tarea("tarea 2")
+    tarea_a_completar = gestor.obtener_tareas()[0]
+    tarea_a_completar1 = gestor.obtener_tareas()[1]
+    gestor.marcar_completada(tarea_a_completar.obtener_identificador())
+    gestor.marcar_completada(tarea_a_completar1.obtener_identificador())
 
-    assert lista.completar("tarea 1") == "Completada"
-    assert lista.completar("tarea 2") == "Completada"
+    assert tarea_a_completar.esta_completada() is True
+    assert tarea_a_completar1.esta_completada() is True
 
-# def test_se_puede_completar_tareas():
-#     lista = ListaDeTareas()
-#     lista.agregar_tarea("tarea 1")
-#     lista.agregar_tarea("tarea 2")
-#     lista.agregar_tarea("tarea 3")
-#
-#     assert lista.completar_tarea("tarea 1") == True
-#     assert lista.completar_tarea("tarea 2") == True
-#     assert lista.completar_tarea("tarea 3") == True
-#
-# def test_se_puede_eliminar_tareas():
-#     lista = ListaDeTareas()
-#     lista.agregar_tarea("tarea 1")
-#     lista.eliminar_tarea("tarea 1")
-#
-#     lista.agregar_tarea("tarea 2")
-#     lista.eliminar_tarea("tarea 2")
-#
-#     assert lista.obtener_tarea_pendiente() is None
+def test_se_puede_marcar_como_incompleta_una_tarea():
+    gestor = GestorDeTareas()
+    gestor.agregar_tarea("tarea 1")
+    tarea = gestor.obtener_tareas()[0]
+    gestor.marcar_completada(tarea.obtener_identificador())
+
+    assert tarea.esta_completada() is True
+
+    gestor.marcar_incompleta(tarea.obtener_identificador())
+
+    assert tarea.esta_completada() is False

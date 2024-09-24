@@ -1,19 +1,29 @@
 class Tarea:
+    id_contador = 1
+
     def __init__(self, descripcion):
+        self.__id = Tarea.id_contador
         self.__descripcion = descripcion
-        self.__completada = False
+        self.__estado = False
+        Tarea.id_contador += 1
 
     def completar(self):
-        self.__completada = True
+        self.__estado = True
 
     def revertir(self):
-        self.__completada = False
+        self.__estado = False
+
+    def mostrar_tarea(self):
+        return self.__descripcion
 
     def esta_completada(self):
-        return self.__completada
+        return self.__estado
 
-    def comparar_descripcion(self, descripcion):
-        return self.__descripcion == descripcion
-
-    def describir_tarea(self):
+    def obtener_descripcion(self):
         return self.__descripcion
+
+    def obtener_identificador(self):
+        return self.__id
+
+    def __str__(self):
+        return f"Tarea(id={self.__id}, descripcion='{self.__descripcion}', completada={self.__estado})"
