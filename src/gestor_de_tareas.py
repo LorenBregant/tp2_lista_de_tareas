@@ -2,45 +2,40 @@
 #Se puede agregar una o multiples tareas
 #Se puede marcar como completada una o mulltiples tareas
 #Se pueden eliminar tareas
+from tareas import Tarea
+
 
 # from src.tareas import Tarea
 
 class ListaDeTareas:
     def __init__(self):
-        self.__detalle = []
-        self.__estado = False
-        self.__id = 1
+        self.__tareas = []
 
-    def agregar_tarea(self, tarea):
-        dic = {id : self.__id,
-               "nombre" : tarea,
-               "estado" : self.__estado
-               }
-        self.__detalle.append(dic)
-        self.__id += 1
+    def agregar_tarea(self, descripcion):
+            self.__tareas.append(descripcion)
 
     def cantidad_de_tareas(self):
-        return len(self.__detalle)
+        return len(self.__tareas)
 
-    def completar(self, tarea):
-        for item in self.__detalle:
-            if item["nombre"] == tarea:
-                item["estado"] = True
-                return "Completada"
+    # def completar(self, tarea):
+    #     for item in self.__detalle:
+    #         if item["nombre"] == tarea:
+    #             item["estado"] = True
+    #             return "Completada"
 
     def mostrar_tareas(self):
-        for tarea in self.__detalle:
+        for tarea in self.__tareas:
             print(tarea)
 
-# lista = ListaDeTareas()
-# lista.agregar_tarea("tarea 1")
-# lista.agregar_tarea("tarea 2")
-# lista.agregar_tarea("tarea 3")
+lista = ListaDeTareas()
+lista.agregar_tarea("tarea 1")
+lista.agregar_tarea("tarea 2")
+lista.agregar_tarea("tarea 3")
 # lista.completar("tarea 1")
 # lista.completar("tarea 2")
-#
-# lista.mostrar_tareas()
-# print(lista.cantidad_de_tareas())
+
+lista.mostrar_tareas()
+print(lista.cantidad_de_tareas())
 
 # class ListaDeTareas:
 #     def __init__(self):
