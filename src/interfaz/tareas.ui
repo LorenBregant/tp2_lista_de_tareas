@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ListaDeTareas</class>
+ <widget class="QWidget" name="ListaDeTareas">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>265</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lista de Tareas</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="labelDescripcion">
+       <property name="text">
+        <string>Escriba la tarea:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="inputDescripcion"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnAgregar">
+       <property name="text">
+        <string>Agregar tarea</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="ListaTareas"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnEliminar">
+       <property name="text">
+        <string>Eliminar tarea</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnEliminarCompletadas">
+       <property name="text">
+        <string>Eliminar tareas completadas</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
