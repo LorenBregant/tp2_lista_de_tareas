@@ -1,4 +1,4 @@
-from src.tareas import Tarea
+from tareas import Tarea
 
 class GestorDeTareas:
     def __init__(self):

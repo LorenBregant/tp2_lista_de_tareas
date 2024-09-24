@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QMessageBox, QListWidgetItem, QCheckBox
 from PySide6.QtCore import Qt
-from src.interfaz.ui_tareas import Ui_ListaDeTareas
-from src.gestor_de_tareas import GestorDeTareas
+from interfaz.ui_tareas import Ui_ListaDeTareas
+from gestor_de_tareas import GestorDeTareas
 
 class VentanaPrincipal:
     def __init__(self, window):
