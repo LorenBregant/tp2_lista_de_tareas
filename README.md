@@ -35,6 +35,10 @@ Sigue estos pasos para instalar la aplicación en tu máquina local:
     ```
    pip install -r requirements.txt
     ```
+4. **Genera la interfaz gráfica**:
+    ```
+   pyside6-uic src/interfaz/tareas.ui -o src/interfaz/ui_tareas.py
+    ```
 
 ## Uso
 
