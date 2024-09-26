@@ -8,19 +8,19 @@ class GestorDeTareas:
         tarea = Tarea(descripcion)
         self.__tareas.append(tarea)
 
-    def marcar_completada(self, id):
+    def marcar_tarea_como_completa(self, id):
         for tarea in self.__tareas:
-            if tarea.obtener_identificador() == id:
+            if tarea.identificador() == id:
                 tarea.completar()
 
-    def marcar_incompleta(self, id):
+    def marcar_tarea_como_incompleta(self, id):
         for tarea in self.__tareas:
-            if tarea.obtener_identificador() == id:
+            if tarea.identificador() == id:
                 tarea.revertir()
 
     def eliminar_tarea(self, id):
         for tarea in self.__tareas:
-            if tarea.obtener_identificador() == id:
+            if tarea.identificador() == id:
                 self.__tareas.remove(tarea)
                 break
 

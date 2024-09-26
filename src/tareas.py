@@ -13,16 +13,13 @@ class Tarea:
     def revertir(self):
         self.__estado = False
 
-    def mostrar_tarea(self):
-        return self.__descripcion
-
-    def esta_completada(self):
+    def completada(self):
         return self.__estado
 
-    def obtener_descripcion(self):
+    def descripcion(self):
         return self.__descripcion
 
-    def obtener_identificador(self):
+    def identificador(self):
         return self.__id
 
     def __str__(self):

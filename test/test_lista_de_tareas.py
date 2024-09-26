@@ -22,7 +22,7 @@ def test_se_puede_eliminar_una_tarea():
     gestor = GestorDeTareas()
     gestor.agregar_tarea("tarea 1")
     tarea_a_eliminar = gestor.obtener_tareas()[0]
-    gestor.eliminar_tarea(tarea_a_eliminar.obtener_identificador())
+    gestor.eliminar_tarea(tarea_a_eliminar.identificador())
 
     assert gestor.cantidad_de_tareas() == 0
 
@@ -30,9 +30,9 @@ def test_se_puede_completar_una_tarea():
     gestor = GestorDeTareas()
     gestor.agregar_tarea("tarea 1")
     tarea_a_completar = gestor.obtener_tareas()[0]
-    gestor.marcar_completada(tarea_a_completar.obtener_identificador())
+    gestor.marcar_tarea_como_completa(tarea_a_completar.identificador())
 
-    assert tarea_a_completar.esta_completada() is True
+    assert tarea_a_completar.completada() is True
 
 def test_se_pueden_completar_multiples_tareas():
     gestor = GestorDeTareas()
@@ -40,20 +40,20 @@ def test_se_pueden_completar_multiples_tareas():
     gestor.agregar_tarea("tarea 2")
     tarea_a_completar = gestor.obtener_tareas()[0]
     tarea_a_completar1 = gestor.obtener_tareas()[1]
-    gestor.marcar_completada(tarea_a_completar.obtener_identificador())
-    gestor.marcar_completada(tarea_a_completar1.obtener_identificador())
+    gestor.marcar_tarea_como_completa(tarea_a_completar.identificador())
+    gestor.marcar_tarea_como_completa(tarea_a_completar1.identificador())
 
-    assert tarea_a_completar.esta_completada() is True
-    assert tarea_a_completar1.esta_completada() is True
+    assert tarea_a_completar.completada() is True
+    assert tarea_a_completar1.completada() is True
 
 def test_se_puede_marcar_como_incompleta_una_tarea():
     gestor = GestorDeTareas()
     gestor.agregar_tarea("tarea 1")
     tarea = gestor.obtener_tareas()[0]
-    gestor.marcar_completada(tarea.obtener_identificador())
+    gestor.marcar_tarea_como_completa(tarea.identificador())
 
-    assert tarea.esta_completada() is True
+    assert tarea.completada() is True
 
-    gestor.marcar_incompleta(tarea.obtener_identificador())
+    gestor.marcar_tarea_como_incompleta(tarea.identificador())
 
-    assert tarea.esta_completada() is False
+    assert tarea.completada() is False
